@@ -5,3 +5,9 @@
     state: directory
     mode: '0755'
     path: "/usr/local/share/gnome-shell/extensions"
+
+- name: Get argos from git
+  ansible.builtin.git:
+    repo: "https://github.com/p-e-w/argos.git"
+    dest: "/usr/local/share/gnome-shell/extensions"
+
