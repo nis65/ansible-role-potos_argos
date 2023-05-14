@@ -1,0 +1,51 @@
+#!/usr/bin/bash
+
+# no param: toggles on/off
+# -c: check and show current mode
+
+NAME="argos@pew.worldwidemann.com"
+ONLYCHECK=no
+
+if [[ "$#" -gt "0" ]]
+then
+  if [[ "$#" -gt "1" ]]
+  then
+    echo "INFO: ignoring all parameters beyond the first: '$1'"
+  fi
+  if [[ "$1" == "-c" ]]
+  then
+    ONLYCHECK=yes
+  else
+    echo "-c is only valid parameter, enables check only"
+    exit 1
+  fi
+fi
+
+currentextensions=$( gsettings get org.gnome.shell enabled-extensions )
+
+if echo "${currentextensions}" | grep "${NAME}" >/dev/null
+then
+  STATE=active
+else
+  STATE=inactive
+fi
+
+echo "Extension ${NAME} is ${STATE}"
+
+if [[ "${ONLYCHECK}" == "no" ]]
+then
+  if [[ "${STATE}" == active ]]
+  then
+    newextensions=$( echo $currentextensions | sed -e "s/'${NAME}'//" )
+    echo "Disabling ${NAME}"
+  else
+    newextensions=$( echo $currentextensions | sed -e "s/\]/, '${NAME}']/" )
+    echo "Enabling ${NAME}"
+  fi
+  # when removing or adding, wrong commas can remain, clean up
+  cleanextensions=$( echo $newextensions | sed -e "s/\[,/[/" | sed -e "s/, *,/,/" )
+  #echo OLD: $currentextensions
+  #echo DRT: $newextensions
+  #echo NEW: $cleanextensions
+  gsettings set org.gnome.shell enabled-extensions "${cleanextensions}"
+fi
