@@ -4,9 +4,4 @@
   ansible.builtin.file:
     state: directory
     mode: '0755'
-  with_nested: "{{ dirs }}"
-  vars:
-    dirs:
-      - "/usr/local/share"
-      - - "/gnome-shell"
-      - - - "/extensions"
+    path: "/usr/local/share/gnome-shell/extensions"
