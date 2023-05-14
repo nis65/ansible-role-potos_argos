@@ -1,9 +1,12 @@
 ---
 
-- name: Example task to deploy a template
-  ansible.builtin.template:
-    src: 'potos.example.j2'
-    dest: '/potos.example'
-    owner: root
-    group: root
+- name: Ensure local directory
+  ansible.builtin.file:
+    state: directory
     mode: '0755'
+  with_nested: "{{ dirs }}"
+  vars:
+    dirs:
+      - /usr/local/share
+        - /gnome-shell
+          - /extensions
