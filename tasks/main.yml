@@ -8,5 +8,5 @@
   vars:
     dirs:
       - "/usr/local/share"
-        - "/gnome-shell"
-          - "/extensions"
+      - - "/gnome-shell"
+      - - - "/extensions"
