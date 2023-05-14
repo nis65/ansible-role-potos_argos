@@ -7,6 +7,6 @@
   with_nested: "{{ dirs }}"
   vars:
     dirs:
-      - /usr/local/share
-        - /gnome-shell
-          - /extensions
+      - "/usr/local/share"
+        - "/gnome-shell"
+          - "/extensions"
