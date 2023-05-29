@@ -23,6 +23,12 @@
     dest: "/usr/local/bin/gnome-randr"
     mode: '0755'
 
+- name: Create argos example dir
+  ansible.builtin.file:
+    path: /usr/local/src/potos_argos
+    state: directory
+    mode: '0755'
+
 - name: Install argos example script for gnome-randr
   ansible.builtin.copy:
     src: "usr/local/src/potos_argos/set-res"
