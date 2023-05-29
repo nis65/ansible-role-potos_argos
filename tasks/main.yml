@@ -16,3 +16,15 @@
     src: "usr/local/bin/toggle_argos"
     dest: "/usr/local/bin/toggle_argos"
     mode: '0755'
+
+- name: Install rust binary gnome-randr
+  ansible.builtin.copy:
+    src: "usr/local/bin/gnome-randr"
+    dest: "/usr/local/bin/gnome-randr"
+    mode: '0755'
+
+- name: Install argos example script for gnome-randr
+  ansible.builtin.copy:
+    src: "usr/local/src/potos_argos/set-res"
+    dest: "/usr/local/src/potos_argos/set-res"
+    mode: '0755'
