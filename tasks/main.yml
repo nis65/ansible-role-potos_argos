@@ -34,3 +34,9 @@
     src: "usr/local/src/potos_argos/set-res"
     dest: "/usr/local/src/potos_argos/set-res"
     mode: '0755'
+
+- name: Install argos example script for suspend/hibernate
+  ansible.builtin.copy:
+    src: "usr/local/src/potos_argos/power-mgmt"
+    dest: "/usr/local/src/potos_argos/power-mgmt"
+    mode: '0755'
