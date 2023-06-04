@@ -31,12 +31,12 @@
 
 - name: Install argos example script for gnome-randr
   ansible.builtin.copy:
-    src: "usr/local/src/potos_argos/set-res"
-    dest: "/usr/local/src/potos_argos/set-res"
+    src: "usr/local/src/potos_argos/set-res.r.+"
+    dest: "/usr/local/src/potos_argos/set-res.r.+"
     mode: '0755'
 
 - name: Install argos example script for suspend/hibernate
   ansible.builtin.copy:
-    src: "usr/local/src/potos_argos/power-mgmt"
-    dest: "/usr/local/src/potos_argos/power-mgmt"
+    src: "usr/local/src/potos_argos/mgmt"
+    dest: "/usr/local/src/potos_argos/mgmt"
     mode: '0755'

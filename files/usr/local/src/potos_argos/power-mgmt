@@ -1,8 +1,0 @@
-#!/usr/bin/bash
-echo "power"
-echo "---"
-for i in suspend hibernate
-do
-  echo "$i | terminal=false bash='systemctl $i'"
-done
-echo "update | terminal=true bash='sudo mlc-ansible-pull -v -r hourly; sleep 1; exit'"
