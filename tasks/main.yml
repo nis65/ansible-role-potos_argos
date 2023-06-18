@@ -31,12 +31,18 @@
 
 - name: Install argos example script for gnome-randr
   ansible.builtin.copy:
-    src: "usr/local/src/potos_argos/set-res.r.+"
-    dest: "/usr/local/src/potos_argos/set-res.r.+"
+    src: "usr/local/src/potos_argos/set-res.r.+.sh"
+    dest: "/usr/local/src/potos_argos/set-res.r.+.sh"
     mode: '0755'
 
 - name: Install argos example script for suspend/hibernate
   ansible.builtin.copy:
     src: "usr/local/src/potos_argos/mgmt"
     dest: "/usr/local/src/potos_argos/mgmt"
+    mode: '0755'
+
+- name: Install argos example script for smb_mount
+  ansible.builtin.copy:
+    src: "usr/local/src/potos_argos/smb_mount.r.+.sh"
+    dest: "/usr/local/src/potos_argos/smb_mount.r.+.sh"
     mode: '0755'
