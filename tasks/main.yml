@@ -46,3 +46,10 @@
     src: "usr/local/src/potos_argos/smb_mount.r.+.sh"
     dest: "/usr/local/src/potos_argos/smb_mount.r.+.sh"
     mode: '0755'
+
+- name: Install argos example script for multiroom
+  ansible.builtin.copy:
+    src: "usr/local/src/potos_argos/multiroom.r.1s+.sh"
+    dest: "/usr/local/src/potos_argos/multiroom.r.1s+.sh"
+    mode: '0755'
+
