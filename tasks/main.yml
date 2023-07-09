@@ -1,9 +1,55 @@
 ---
 
-- name: Example task to deploy a template
-  ansible.builtin.template:
-    src: 'potos.example.j2'
-    dest: '/potos.example'
-    owner: root
-    group: root
+- name: Ensure local directory
+  ansible.builtin.file:
+    state: directory
     mode: '0755'
+    path: "/usr/local/share/gnome-shell/extensions"
+
+- name: Install argos from git
+  ansible.builtin.git:
+    repo: "https://github.com/p-e-w/argos.git"
+    dest: "/usr/local/share/gnome-shell/extensions"
+
+- name: Install (de-) activate script for user
+  ansible.builtin.copy:
+    src: "usr/local/bin/toggle_argos"
+    dest: "/usr/local/bin/toggle_argos"
+    mode: '0755'
+
+- name: Install rust binary gnome-randr
+  ansible.builtin.copy:
+    src: "usr/local/bin/gnome-randr"
+    dest: "/usr/local/bin/gnome-randr"
+    mode: '0755'
+
+- name: Create argos example dir
+  ansible.builtin.file:
+    path: /usr/local/src/potos_argos
+    state: directory
+    mode: '0755'
+
+- name: Install argos example script for gnome-randr
+  ansible.builtin.copy:
+    src: "usr/local/src/potos_argos/set-res.r.+.sh"
+    dest: "/usr/local/src/potos_argos/set-res.r.+.sh"
+    mode: '0755'
+
+- name: Install argos example script for suspend/hibernate
+  ansible.builtin.copy:
+    src: "usr/local/src/potos_argos/mgmt"
+    dest: "/usr/local/src/potos_argos/mgmt"
+    mode: '0755'
+
+- name: Install argos example script for smb_mount
+  ansible.builtin.copy:
+    src: "usr/local/src/potos_argos/smb_mount.r.+.sh"
+    dest: "/usr/local/src/potos_argos/smb_mount.r.+.sh"
+    mode: '0755'
+
+- name: Install argos example script for multiroom
+  ansible.builtin.copy:
+    src: "usr/local/src/potos_argos/multiroom.r.1s+.sh"
+    dest: "/usr/local/src/potos_argos/multiroom.r.1s+.sh"
+    mode: '0755'
+

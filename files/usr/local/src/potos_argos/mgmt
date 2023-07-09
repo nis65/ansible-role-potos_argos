@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+echo "power"
+echo "---"
+for i in suspend hibernate suspend-then-hibernate
+do
+  echo "$i | terminal=false bash='sudo /lib/systemd/systemd-sleep $i; /usr/bin/xdg-screensaver lock'"
+done
+echo "update | terminal=true bash='sudo mlc-ansible-pull -v -r hourly; sleep 1; exit'"
+
