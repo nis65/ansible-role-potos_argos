@@ -10,6 +10,8 @@
   ansible.builtin.git:
     repo: "https://github.com/p-e-w/argos.git"
     dest: "/usr/local/share/gnome-shell/extensions"
+    version: "GNOME-44"
+    force: yes
 
 - name: Install (de-) activate script for user
   ansible.builtin.copy:
