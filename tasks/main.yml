@@ -43,6 +43,12 @@
     dest: "/usr/local/src/potos_argos/mgmt"
     mode: '0755'
 
+- name: Install argos example script for rclone mounts
+  ansible.builtin.copy:
+    src: "usr/local/src/potos_argos/adfi_rclone.r.10s+.sh"
+    dest: "/usr/local/src/potos_argos/adfi_rclone.r.10s+.sh"
+    mode: '0755'
+
 - name: Install argos example script for smb_mount
   ansible.builtin.copy:
     src: "usr/local/src/potos_argos/smb_mount.r.+.sh"

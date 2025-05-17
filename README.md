@@ -19,6 +19,7 @@ command line.
 
 The following example scripts are distributed to `/usr/local/src/potos_argos`:
 
+* `adfi_rclone.r.10s+.sh`: used to interface with [adfinis-rclone-mount](https://github.com/adfinis/adfinis-rclone-mount)
 * `mgmt`: suspend and hibernate that works (needs potos_hibernate rule)
 * `multiroom.r.1s+.sh`: control `mpd` and `snapserver`
 * `set-res.r.+.sh`: change resolution on wayland (together with `gnome-randr` copied from [here](https://github.com/maxwellainatchi/gnome-randr-rust))
