@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 
-BINARY=adfinis-rclone-mount
+BINARY=adfinis-rclone-mgr
 ABSBINARY=$( which $BINARY )
 
-URL="https://github.com/adfinis/adfinis-rclone-mount/releases"
+URL="https://github.com/adfinis/adfinis-rclone-mgr/releases"
 
 if [[ ! -x $ABSBINARY ]]
 then
@@ -13,7 +13,7 @@ then
   exit
 fi
 
-CONFIGURE="$ABSBINARY"
+CONFIGURE="$ABSBINARY gdrive-config"
 MOUNTALL="$ABSBINARY mount all"
 UMOUNTALL="$ABSBINARY umount all"
 STATUS="$ABSBINARY ls"

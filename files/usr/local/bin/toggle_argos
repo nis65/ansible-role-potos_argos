@@ -43,7 +43,7 @@ then
     echo "Enabling ${NAME}"
   fi
   # when removing or adding, wrong commas can remain, clean up
-  cleanextensions=$( echo $newextensions | sed -e "s/\[,/[/" | sed -e "s/, *,/,/" )
+  cleanextensions=$( echo $newextensions | sed -e "s/\[,/[/" | sed -e "s/, *,/,/" | sed -e "s/, \]$/ ]/")
   #echo OLD: $currentextensions
   #echo DRT: $newextensions
   #echo NEW: $cleanextensions
